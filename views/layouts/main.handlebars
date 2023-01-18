@@ -4,10 +4,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project 2</title>
+  <title>Tech Blog</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
 </head>
 
 <body>
+  <header>
+    <h1>The Tech Blog</h1>
+  </header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="">Dashboard</a>
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav>
   <main>
     {{{body}}}
   </main>
