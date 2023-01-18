@@ -3,13 +3,15 @@ const Post = require('./Post');
 const Comment = require('./Comment');
 
 User.hasMany(Post, {
-    foreignKey: ''
+    foreignKey: 'id'
 });
 
 User.hasMany(Comment, {
-    foreignKey: ''
+    foreignKey: 'id'
 });
 
 Post.hasMany(Comment, {
-    foreignKey: ''
+    foreignKey: 'id'
 });
+
+module.exports = { User, Post, Comment };
