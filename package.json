@@ -4,12 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ryan-young17/tech-blog.git"
+    "setup": "npm i && npm run copy:env && npm run sync && npm run seed",
+    "start": "node server",
+    "sync": "node db/sync",
+    "seed": "node seeds/seed",
+    "copy:env": "cp .env.EXAMPLE .env",
+    "watch": "nodemon server"
   },
   "keywords": [],
   "author": "",
