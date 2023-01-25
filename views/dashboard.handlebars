@@ -1,3 +1,4 @@
+{{#if posts.length}}
 <section>
     <h2>Your Posts</h2>
     <ul>
@@ -15,6 +16,11 @@
     {{/each}}    
     </ul>
 </section>
+{{else}}
+<section>
+    <h2>You don't have any posts yet. Click below to add your first one!</h2>
+</section>
+{{/if}}
 
 <div>
     <button type="submit"><a href="dashboard/create">Create New Post</a></button>
