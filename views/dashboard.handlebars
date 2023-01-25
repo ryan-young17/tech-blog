@@ -1,0 +1,22 @@
+<section>
+    <h2>Your Posts</h2>
+    <ul>
+    {{#each posts as |post|}}
+        <ul>
+            <article>
+                <div>
+                    <p>{{title}}</p>
+                </div>
+                <div>
+                    <strong>Posted on {{format_date created_at}}</strong>
+                </div>
+            </article>
+        </ul>
+    </ul>
+</section>
+
+<div>
+    <button>
+        <a href="api/users/newpost">Create New Post</a>
+    </button>
+</div>

@@ -39,18 +39,20 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
-router.post('/dashboard', async (req, res) => {
-  try {
-    const newPost = await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-      user_id: req.session.user_id
-    });
-    res.status(200).json(newPost);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.post('/newpost', (req, res) => {
+  res.render('new_post', {loggedIn: req.session.loggedIn});
 });
+
+// try {
+//   const newPost = await Post.create({
+//     title: req.body.title,
+//     content: req.body.content,
+//     user_id: req.session.user_id
+//   });
+//   res.status(200).json(newPost);
+// } catch (err) {
+//   res.status(500).json(err);
+// }
 
 router.put('/dashboard', async (req, res) => {
   try {
