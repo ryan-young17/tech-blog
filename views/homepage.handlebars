@@ -3,7 +3,9 @@
 <article class="card">
     <a href="/post/{{post.id}}">
         <header>{{post.title}}</header>
-        <p>{{post.content}}</p>
+        <div>
+            <strong>Posted on {{format_date created_at}}</strong>
+        </div>
     </a>
 </article>
 {{/each}}

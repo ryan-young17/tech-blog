@@ -16,6 +16,10 @@
     <a href="/">Home</a>
     {{#if loggedIn}}
     <a href="/dashboard">Dashboard</a>
+    {{else}}
+    <a href="/login">Dashboard</a>
+    {{/if}}
+    {{#if loggedIn}}
     <button id="logout-link" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a>

@@ -39,6 +39,12 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/dashboard', async (req, res) => {
+  res.render('dashboard', {
+    loggedIn: req.session.loggedIn
+  });
+});
+
 router.get('/post/:id', async (req, res) => {
   try {
     const userPost = await Post.findOne({
