@@ -12,8 +12,9 @@
                     <strong>Posted on {{format_date created_at}}</strong>
                 </div>
             </article>
-            <button>Update</button>
-            <button data-id="{{post.id}}" id="delete">Delete</button>
+            <div>
+                <button type="submit"><a href="dashboard/edit/{{post.id}}">Edit</a></button>
+            </div>
         </ul>
     {{/each}}    
     </ul>
@@ -27,5 +28,3 @@
 <div>
     <button type="submit"><a href="dashboard/create">Create New Post</a></button>
 </div>
-
-<script src="/js/deletePost.js"></script>

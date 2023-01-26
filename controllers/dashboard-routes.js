@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
-                ],
+            ],
             where: {
                 user_id: req.session.userId
             }
@@ -39,39 +39,43 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/edit/:id', async (req, res) => {
-    const postData = await Post.findOne({
-        where: {
-            id: req.params.id
-        },
-        attributes: [
-            'id',
-            'content',
-            'title',
-            'created_at'
-        ],
-        include: [
-            {
-                model: User,
-                attributes: ['username']
+    try {
+        const postData = await Post.findOne({
+            where: {
+                id: req.params.id
             },
-            {
-                model: Comment,
-                attributes: [
-                    'id',
-                    'comment_text',
-                    'post_id',
-                    'user_id',
-                    'created_at'
-                ],
-                include: {
+            attributes: [
+                'id',
+                'content',
+                'title',
+                'created_at'
+            ],
+            include: [
+                {
                     model: User,
                     attributes: ['username']
+                },
+                {
+                    model: Comment,
+                    attributes: [
+                        'id',
+                        'comment_text',
+                        'post_id',
+                        'user_id',
+                        'created_at'
+                    ],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
                 }
-            }
-        ]
-    });
-    const post = postData.get({ plain: true });
-    //res.render edit handlebars page
+            ]
+        });
+        const post = postData.get({ plain: true });
+        res.render('edit-post', { post, loggedIn: req.session.loggedIn });
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 router.get('/create', (req, res) => {

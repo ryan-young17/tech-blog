@@ -1,7 +1,10 @@
 <section>
 {{#each posts as |post|}}
-<ul>
-{{> post-details}}
-</ul>
+<article class="card">
+    <a href="/post/{{post.id}}">
+        <header>{{post.title}}</header>
+        <p>{{post.content}}</p>
+    </a>
+</article>
 {{/each}}
 </section>
