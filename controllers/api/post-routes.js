@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 
 router.get('/', async (req, res) => {
+  console.log("inside the post get route  ******")
     try {
       const userPosts = await Post.findAll({
         attributes: ['id', 'content', 'title', 'created_at'],
@@ -24,29 +25,33 @@ router.get('/', async (req, res) => {
         }
       });
   
-      const posts = dbPostData.map((post) =>
+      const posts = userPosts.map((post) =>
         post.get({ plain: true })
         );
+        console.log("posts: ", posts)
         
         res.render('dashboard', {
           posts,
-          loggedIn: req.session.loggedIn
+          // loggedIn: req.session.loggedIn
         });
     } catch (err) {
-      console.log(err);
+      console.log("err while creating the post : ", err);
       res.status(500).json(err);
     }
 });
 
 router.post('/', async (req, res) => {
+  console.log("inside the post route")
     try {
         const newPost = await Post.create({
           title: req.body.title,
           content: req.body.content,
-          user_id: req.session.user_id
+          user_id: req.session.userId
         });
+        console.log("newPost: ", newPost)
         res.status(200).json(newPost);
     } catch (err) {
+      console.log("err in post route:", err)
       res.status(500).json(err);
     }
 });
