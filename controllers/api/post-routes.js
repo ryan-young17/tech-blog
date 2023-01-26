@@ -31,8 +31,7 @@ router.get('/', async (req, res) => {
         console.log("posts: ", posts)
         
         res.render('dashboard', {
-          posts,
-          // loggedIn: req.session.loggedIn
+          posts
         });
     } catch (err) {
       console.log("err while creating the post : ", err);
@@ -76,6 +75,25 @@ router.put('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedPost = await Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    
+    if (!deletedPost) {
+      res.json({ message: 'Could not find post to delete.'});
+    }
+    
+    res.status(200).json(deletedPost);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

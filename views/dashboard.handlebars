@@ -1,5 +1,5 @@
 {{#if posts.length}}
-<section>
+<section id="post-list">
     <h2>Your Posts</h2>
     <ul>
     {{#each posts as |post|}}
@@ -12,6 +12,7 @@
                     <strong>Posted on {{format_date created_at}}</strong>
                 </div>
             </article>
+            <button data-id="{{post.id}}" id="delete">Delete</button>
         </ul>
     {{/each}}    
     </ul>
@@ -25,3 +26,5 @@
 <div>
     <button type="submit"><a href="dashboard/create">Create New Post</a></button>
 </div>
+
+<script src="/js/deletePost.js"></script>
