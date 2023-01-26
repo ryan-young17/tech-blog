@@ -10,6 +10,11 @@
     <label class="form-label">Comment</label>
     <textarea id="blog-comment" class="form-control"></textarea>
   </div>
-  <button data-id="{{post.id}}" id="comment" class="btn btn-primary">Add Comment</button>
+  <button data-id="{{id}}" id="comment" class="btn btn-primary">Add Comment</button>
 </form>
 {{/if}}
+
+{{> comments post.comments}}
+
+{{!-- add script file --}}
+<script src="/js/comment.js"></script>
