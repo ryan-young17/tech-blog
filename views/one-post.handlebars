@@ -1,4 +1,4 @@
-<div class="card mt-3">
+<div class="card mt-5">
   <article class="card-body">
     <h3>{{title}}</h3>
     <p>{{content}}</p>
@@ -8,24 +8,27 @@
 {{#if loggedIn}}
 <form id="commentForm" class="mt-3">
   <div class="mb-3">
-    <label class="form-label">Comment</label>
+    <label class="form-label text-light">Comment</label>
     <textarea id="blog-comment" class="form-control"></textarea>
   </div>
-  <button data-id="{{id}}" id="comment" class="btn btn-primary">Add Comment</button>
+  <button data-id="{{id}}" id="purpleBtn" class="btn border border-light text-light">Add Comment</button>
 </form>
 {{/if}}
 
 
 {{#if comments}}
+<h2 class="text-light text-center mt-4 mb-4">Comments</h2>
 {{#each comments as |comment|}}
-<section>
-    <div>
-      <header>{{comment.user.username}} on {{format_date comment.created_at}}</header>
-    </div>
-    <div>
-      <p>{{comment.comment_text}}</p>
-    </div>
-</section>
+<div class="card commentCard border border-light mt-3">
+  <article class="card-body">
+      <div>
+        <h5 class="text-light">{{comment.user.username}} on {{format_date comment.created_at}}</h5>
+      </div>
+      <div>
+        <p class="text-light">{{comment.comment_text}}</p>
+      </div>
+  </article>
+</div>
 {{/each}}
 {{/if}}
 {{!-- add script file --}}

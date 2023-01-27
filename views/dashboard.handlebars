@@ -1,7 +1,12 @@
 {{#if posts.length}}
-<header class="d-flex justify-content-center mt-5">
-    <h2>Your Posts</h2>
-</header>
+<div class="d-flex justify-content-between">
+    <header class="mt-5">
+        <h2 class="text-light">Your Posts</h2>
+    </header>
+    <div class="mt-5">
+        <button type="submit" id="purpleBtn" class="btn border border-light text-light"><a href="dashboard/create" class="text-light text-decoration-none">+ Create New Post</a></button>
+    </div>
+</div>
 {{#each posts as |post|}}
 <div id="post-list" class="card mt-3">
     <article class="card-body">
@@ -9,16 +14,16 @@
         <div>
             <strong>Posted on {{format_date created_at}}</strong>
         </div>
-        <button type="submit" class="btn btn-primary mt-2"><a href="dashboard/edit/{{post.id}}" class="text-decoration-none text-light">Edit Post</a></button> 
+        <button type="submit" id="purpleBtn" class="btn text-light mt-2"><a href="dashboard/edit/{{post.id}}" class="text-decoration-none text-light">Edit Post</a></button> 
     </article>
 </div>
 {{/each}}
 {{else}}
 <section class="d-flex justify-content-center mt-5">
-    <p>You don't have any posts yet. Click below to add your first one!</p>
+    <p class="text-light">You don't have any posts yet. Click below to add your first one!</p>
 </section>
+<div class="d-flex justify-content-center mt-4">
+    <button type="submit" id="purpleBtn" class="btn border border-light text-light"><a href="dashboard/create" class="text-light text-decoration-none">+ Create New Post</a></button>
+</div>
 {{/if}}
 
-<div class="d-flex justify-content-center mt-3">
-    <button type="submit" class="btn btn-primary"><a href="dashboard/create" class="text-light text-decoration-none">Create New Post</a></button>
-</div>
