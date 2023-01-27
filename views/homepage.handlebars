@@ -1,12 +1,15 @@
-<section>
+<header class="d-flex justify-content-center mt-5">
+    <h2>Posts</h2>
+</header>
 {{#each posts as |post|}}
-<article class="card">
-    <a href="/post/{{post.id}}">
-        <header>{{post.title}}</header>
+<div class="card mt-3">
+<article class="card-body">
+    <a href="/post/{{post.id}}" class="text-decoration-none text-dark">
+        <h3>{{post.title}}</h3>
         <div>
             <strong>Posted on {{format_date created_at}}</strong>
         </div>
     </a>
 </article>
+</div>
 {{/each}}
-</section>

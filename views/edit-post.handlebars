@@ -1,19 +1,22 @@
-<h2>Edit Post</h2>
-<a href="/dashboard">Go back to Dashboard</a>
-<form id="editPostForm">
-  <div class="mb-3">
-    <label class="form-label">Title</label>
-    <input id="blog-title" class="form-control" value="{{post.title}}">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Content</label>
-    <textarea id="blog-content" class="form-control">{{post.content}}</textarea>
-  </div>
-  <div id="editBtns">
-    <button data-id="{{post.id}}" type="submit" id="update" class="btn btn-primary">Save Post</button>
-    <button data-id="{{post.id}}" id="delete" class="btn btn-primary">Delete</button>
-  </div>
-</form>
+<header class="d-flex justify-content-center mt-5">
+  <h2>Edit Post</h2>
+</header>
+<div class="card m-5">
+  <form id="editPostForm" class="card-body">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input id="blog-title" class="form-control" value="{{post.title}}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Content</label>
+      <textarea id="blog-content" class="form-control">{{post.content}}</textarea>
+    </div>
+    <div id="editBtns">
+      <button data-id="{{post.id}}" type="submit" id="update" class="btn btn-primary">Save Post</button>
+      <button data-id="{{post.id}}" id="delete" class="btn btn-primary">Delete</button>
+    </div>
+  </form>
+</div>
 
 <script src="/js/deletePost.js"></script>
 <script src="/js/updatePost.js"></script>

@@ -1,11 +1,12 @@
-<a href="/">Go back to Home</a>
-<article class="card">
-    <header>{{title}}</header>
+<div class="card mt-3">
+  <article class="card-body">
+    <h3>{{title}}</h3>
     <p>{{content}}</p>
-    <p>Posted by: {{user.username}} on {{format_date created_at}}</p>
-</article>
+    <strong>Posted by: {{user.username}} on {{format_date created_at}}</strong>
+  </article>
+</div>
 {{#if loggedIn}}
-<form id="commentForm">
+<form id="commentForm" class="mt-3">
   <div class="mb-3">
     <label class="form-label">Comment</label>
     <textarea id="blog-comment" class="form-control"></textarea>
