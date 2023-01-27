@@ -15,7 +15,18 @@
 </form>
 {{/if}}
 
-{{> comments post.comments}}
 
+{{#if comments}}
+{{#each comments as |comment|}}
+<section>
+    <div>
+      <header>{{comment.user.username}} on {{format_date comment.created_at}}</header>
+    </div>
+    <div>
+      <p>{{comment.comment_text}}</p>
+    </div>
+</section>
+{{/each}}
+{{/if}}
 {{!-- add script file --}}
 <script src="/js/comment.js"></script>

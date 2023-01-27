@@ -4,8 +4,8 @@ const updatePost = async (event) => {
     const title = document.querySelector("#blog-title");
     const content = document.querySelector("#blog-content");
 
-    if(event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+    if(event.submitter.hasAttribute('data-id')) {
+        const id = event.submitter.getAttribute('data-id');
         const response =  await fetch(`/api/posts/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
