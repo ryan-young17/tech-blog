@@ -1,6 +1,5 @@
 const addComment = async (event) => {
     event.preventDefault();
-    console.log(event);
     const comment = document.querySelector("#blog-comment");
 
     if (event.submitter.hasAttribute('data-id')) {

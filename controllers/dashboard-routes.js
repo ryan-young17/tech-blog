@@ -27,13 +27,11 @@ router.get('/', async (req, res) => {
         const posts = userPosts.map((post) =>
             post.get({ plain: true })
         );
-        console.log(posts);
         res.render('dashboard', {
             posts,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
